@@ -1,5 +1,5 @@
 <?php 
- $namepage = "inicio";
+ $namepage = "Guia";
  include('/xampp/htdocs/emprendimeinto/vistas/admin/template/header.php');
 
 ?>
@@ -15,19 +15,26 @@
                             <input class="form-control" id="titulo" type="text"></input>
                         
                         </div>
-                        <div class="form-group">
-                            <label for="Subtitulo">Subtitulo</label>
-                            <input class="form-control" id="Subtitulo" type="text"></input>
-                        
+                       <div class="form-group">
+                            <label for="Duracion">Duracion</label>
+                            <textarea class="form-control" id="Duracion" rows="3"></textarea>
                         </div>
+                        
                         <div class="form-group">
                             <label for="Descripcion">Descripcion</label>
                             <textarea class="form-control" id="Descripcion" rows="3"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="Duracion">Duracion</label>
-                            <textarea class="form-control" id="Duracion" rows="3"></textarea>
+                            <label for="Documentos">Documentos</label>
+                            <input type="file" class="form-control" name="file_document">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="Imagen">Imagen</label>
+                            <input type="file" class="form-control" name="file_picture">
+                        </div>
+                        
+
                        <button type="submit" class="btn btn-primary">Agregar</button>
                     </form>
                     </div>
