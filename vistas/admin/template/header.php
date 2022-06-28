@@ -20,9 +20,8 @@
 
     <!-- Main Stylesheet File -->
     <link href="/emprendimeinto/css/style.css" rel="stylesheet">
-    <link href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script src="//cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
-   
+ 
+    <?php if(isset($librerias)){ echo $librerias;} ?>
 <style>
         #header {
             background: black;
@@ -39,6 +38,11 @@
         }
         hr {
   border-top: 1px dashed red;
+} 
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    margin-top: 29px;
 }
     </style>
 </head>
