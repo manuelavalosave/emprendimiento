@@ -1,5 +1,5 @@
 <?php
-$namepage = "inicio";
+$namepage = "inicio editar";
 $librerias = '<script
 src="https://code.jquery.com/jquery-3.6.0.js"
 integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -13,6 +13,7 @@ if(isset($_GET['id']) && isset($_GET['editar']) && $_GET['editar'] == 1){
 }
 
 if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
+    
     print_r(Actualizar_informacion_index($_GET['id'],$_POST['titulo'],$_POST['subtitulo'],$_POST['descripcion'],$_POST['duracion']));
     if(Actualizar_informacion_index($_GET['id'],$_POST['titulo'],$_POST['subtitulo'],$_POST['descripcion'],$_POST['duracion']) == 1){
         echo "<script>alert('Se actualizo correctamente');</script>";

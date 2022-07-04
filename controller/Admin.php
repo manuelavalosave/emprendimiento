@@ -8,6 +8,7 @@ include('/xampp/htdocs/emprendimeinto/Datos/funcionesbd.php');
       }
     }
 
+
   $inicio = informacionInicio();
 
 

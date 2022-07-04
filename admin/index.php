@@ -76,7 +76,7 @@ EliminiarInformacion($_GET['id']);
                  
                         <?php  foreach ( $inicio as $key) { ?> 
                               <tr>
-                            <td><?php echo $key['subtitulo']; ?></td>
+                            <td><?php echo $key['titulo']; ?></td>
                             <td><?php echo $key['subtitulo']; ?></td>
                             <td><?php echo $key['descripcion']; ?></td>
                             <td><?php echo $key['duracion']; ?></td>

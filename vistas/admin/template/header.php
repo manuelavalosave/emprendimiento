@@ -68,8 +68,8 @@
             <nav class="main-nav float d-none d-lg-block">
 
                 <ul>
-                <li class="active"><a href="#intro">INICIO</a></li>
-                    <li><a href="#guia">GUÍA</a></li>
+                <li ><a href="../admin/index.php">INICIO</a></li>
+                    <li><a href="../admin/guia.php">GUÍA</a></li>
                     <li><a href="#conv">CONVOCATORIA</a></li>
                     <li><a href="#finan">FINANCIAMIENTO</a></li>
                     <li><a href="#aseso">ASESORIAS</a></li>
