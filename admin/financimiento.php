@@ -1,17 +1,17 @@
 <?php 
-  $namepage = "Convocatoria";
+  $namepage = "Financimiento";
   $librerias = '<script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
   crossorigin="anonymous"></script><link href="../lib/datatable/jquery.dataTables.min.css" rel="stylesheet"> <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>';
-  include('../controller/Convocatoria.php');
+  include('../controller/Financiamiento.php');
   include('../vistas/admin/template/header.php');
   
   if(isset($_GET['id']) && $_GET['delete'] == 1){
       echo "<script>alert('Se elimino correctamente');</script>"; 
       
-      if(Convocatoria_delete($_GET['id']) == 1){
-          header("location: convocatoria.php");
+      if(Financimiento_delete($_GET['id']) == 1){
+          header("location: financimiento.php");
       }
   }
 ?>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <h4>En esta seccion podras  configurar lo que aparece en la pagina de <?php echo $namepage; ?></h4>
                     <div class="col-lg-5 col-md-6">
-                    <form method="POST" action="../controller/Convocatoria.php" enctype="multipart/form-data">
+                    <form method="POST" action="../controller/Financiamiento.php" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
                             <input class="form-control" id="titulo" type="text" name="titulo"></input>
@@ -78,8 +78,8 @@
                             <td><?php echo $key['descripcion']; ?></td>
                             <td><?php echo $key['duracion']; ?></td>
                             <td>
-                                <a href="../admin/Editar/convocatoria-editar.php?id=<?php echo $key['idDocumentos']; ?>&editar=1">Editar</a>
-                                <a href="../admin/convocatoria.php?id=<?php echo $key['idDocumentos']; ?>&delete=1">Eliminar</a>
+                                <a href="../admin/Editar/financimiento-editar.php?id=<?php echo $key['idDocumentos']; ?>&editar=1">Editar</a>
+                                <a href="../admin/financimiento.php?id=<?php echo $key['idDocumentos']; ?>&delete=1">Eliminar</a>
                             </td> 
                          </tr>
                         <?php } ?>

@@ -1,5 +1,5 @@
 <?php 
- $namepage = "Guia";
+ $namepage = "Financimiento";
  $librerias = '<script
  src="https://code.jquery.com/jquery-3.6.0.js"
  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -7,7 +7,7 @@
  include('../../Datos/funcionesbd.php');
  include('../../vistas/admin/template/header.php');
  if(isset($_GET['id']) && isset($_GET['editar']) && $_GET['editar'] == 1){
-    $datos = Guia_show($_GET['id']);
+    $datos = Financimiento_show($_GET['id']);
 
 }
 if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
@@ -24,24 +24,12 @@ if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
         }
     }
      
-    $rutaDocumento = "";
-    if(isset($_FILES['file_document'])){
-        $rutEliminar = "../../".$_POST['documento']."";
-        unlink($rutEliminar);
-        $directorio = '../../archivos/docs/';
-        $subir_archivo = $directorio . basename($_FILES['file_document']['name']);
-        if (move_uploaded_file($_FILES['file_document']['tmp_name'], $subir_archivo)) {
-            $rutaDocumento = 'archivos/docs/' . basename($_FILES['file_document']['name']);
-        } else {
-            echo "Error al subir el documento";    
-        }
-    echo $rutaDocumento;
-    }
+  
 
-     print_r(Guia_update($_GET['id'],$_POST['titulo'], "", $_POST['descripcion'], $_POST['duracion'], $rutaDocumento, $rutaImagen, 0, "guia", 1));
-     if(Guia_update($_GET['id'],$_POST['titulo'], "", $_POST['descripcion'], $_POST['duracion'], $rutaDocumento, $rutaImagen, 0, "guia", 1) == 1){
+     print_r(Financimiento_update($_GET['id'],$_POST['titulo'], "", $_POST['descripcion'], $_POST['duracion'], '', $rutaImagen, $_POST['Enlace'], "Financimiento", 1));
+     if(Financimiento_update($_GET['id'],$_POST['titulo'], "", $_POST['descripcion'], $_POST['duracion'], '', $rutaImagen, $_POST['Enlace'], "Financimiento", 1) == 1){
          echo "<script>alert('Se actualizo correctamente');</script>";
-         header("location: ../editar/guia-editar.php?id=".$_GET['id']."&editar=1");
+         header("location: ../editar/financimiento-editar.php?id=".$_GET['id']."&editar=1");
      }
    }
 ?>
@@ -57,7 +45,7 @@ if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
                     <h4>En esta seccion podras  configurar lo que aparece en la pagina de <?php echo $namepage; ?></h4>
                     <div class="col-lg-5 col-md-6">
                       
-                    <form method="POST" action="../editar/guia-editar.php?id=<?php echo $_GET['id'];?>&update=1" enctype="multipart/form-data">
+                    <form method="POST" action="../editar/financimiento-editar.php?id=<?php echo $_GET['id'];?>&update=1" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
                             <input class="form-control" id="titulo" type="text" name="titulo" value="<?php print_r($datos[0]['titulo']); ?>" ></input>
@@ -73,15 +61,8 @@ if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
                             <textarea class="form-control" id="Descripcion" name="descripcion" rows="3"><?php print_r($datos[0]['descripcion']); ?></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="Documentos">Documentos</label>
-                            <input type="file" class="form-control" name="file_document" accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"     >
-                            <input type="hidden" name="documento" value="<?php print_r($datos[0]['documento']); ?>">
-                            <?php if(empty($datos[0]['documento'])){ ?>
-                                <p>No hay documento</p>
-                            <?php }else{ ?>
-                                <a href="../../<?php print_r($datos[0]['documento']); ?>" target="_blank">Ver documento</a>
-                            <?php } ?>
-                            
+                            <label for="Enlace">Enlaces Para Mas informacion</label>
+                            <input type="url" class="form-control" name="Enlace"  value="<?php print_r($datos[0]['enlace']); ?>" >
                         </div>
                         
                         <div class="form-group">
@@ -122,8 +103,8 @@ if(isset($_GET['id']) && isset($_GET['update']) && $_GET['update'] == 1){
                             <td><?php echo $key['descripcion']; ?></td>
                             <td><?php echo $key['duracion']; ?></td>
                             <td>
-                                <a href="../admin/Editar/guia-editar.php?id=<?php echo $key['idDocumentos']; ?>&editar=1">Editar</a>
-                                <a href="../admin/guia.php?id=<?php echo $key['idDocumentos']; ?>&delete=1">Eliminar</a>
+                                <a href="../admin/Editar/financimiento-editar.php?id=<?php echo $key['idDocumentos']; ?>&editar=1">Editar</a>
+                                <a href="../admin/financimiento.php?id=<?php echo $key['idDocumentos']; ?>&delete=1">Eliminar</a>
                             </td> 
                          </tr>
                         <?php } ?>

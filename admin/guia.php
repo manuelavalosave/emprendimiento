@@ -9,6 +9,7 @@
  
  if(isset($_GET['id']) && $_GET['delete'] == 1){
      echo "<script>alert('Se elimino correctamente');</script>"; 
+     
      if(Guia_delete($_GET['id']) == 1){
          header("location: guia.php");
      }
